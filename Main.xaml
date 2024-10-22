@@ -106,7 +106,7 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="900.0000000000001,875.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="743.2,904" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -249,7 +249,7 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <Sequence sap2010:Annotation.AnnotationText="Input: data from outlook&#xA;Output: file excel customer data" DisplayName=" Get infomation from Outlook" sap:VirtualizedContainerService.HintSize="483.20000000000005,651.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="Input: data from outlook&#xA;Output: file excel customer data" DisplayName=" Get infomation from Gmail" sap:VirtualizedContainerService.HintSize="518.4,100.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="pwd" />
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="GetEmail" />
@@ -264,26 +264,27 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmNrR3glbzkKIn4TjRcG5BQAAAAACAAAAAAAQZgAAAAEAACAAAADb0SOpWvsmIkC+HxFD39d7Nyfi/oAIUP2O3K1pK+hRigAAAAAOgAAAAAIAACAAAAB6XnMtXpl7a4jBKVu1Ek7o3Lh5Y1xftJkj/nzaek4GHSAAAADXcIkNndRYNPumeYndHXMZ8H/Tg+axTKp27SvaKclDjkAAAACKdk8heAvAJhChMiB4vZa37W6AB0kyLVR0NSANKDArX2OBPE7O8gOFI8TzfLaoDKal94C5wejFN9XcwxvL0ouZ" Result="[pwd]" />
       <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="nennhayen@gmail.com" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[MailList]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[pwd]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="449.6,433.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailList]">
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="449.6,551.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailList]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentMailMessage" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,296" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,413.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382.4,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[currentMailMessage.Headers(&quot;Date&quot;).ToString]" />
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[currentMailMessage.Subject.ToString]" />
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382.4,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[currentMailMessage.Subject.ToString]" />
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382.4,108.8" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Hi&quot;]" />
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="input: file excel (A)&#xA;output: fill 2 cột nội dung và tóm tắt yêu cầu" DisplayName="Phân loại yêu cầu, tóm tắt nội dung (AI)" sap:VirtualizedContainerService.HintSize="518.4,100.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence sap2010:Annotation.AnnotationText="input: file excel (A)&#xA;output: fill 2 cột nội dung và tóm tắt yêu cầu ( Chung + MB + Lanh)" DisplayName="Phân loại yêu cầu, tóm tắt nội dung (AI)" sap:VirtualizedContainerService.HintSize="518.4,100.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -292,7 +293,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Xác định bộ phận xử lý yêu cầu vào cột bộ phận dựa trên phân loại" DisplayName="Xác định phòng ban" sap:VirtualizedContainerService.HintSize="518.4,88" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence sap2010:Annotation.AnnotationText="Xác định bộ phận xử lý yêu cầu vào cột bộ phận dựa trên phân loại. &#xD;&#xA;Sheet phụ (A) kiểm tra tag phòng ban =&gt; chuyển sang sheet nhỏ 123, xóa dòng trong sheet phụ." DisplayName="Xác định phòng ban ( cá)" sap:VirtualizedContainerService.HintSize="518.4,116.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -301,7 +302,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Phân chia dòng dữ liệu theo phòng ban 1,2,3" DisplayName="Phân chia phòng ban sheet 1,2,3" sap:VirtualizedContainerService.HintSize="518.4,88" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence sap2010:Annotation.AnnotationText="Phân chia dòng dữ liệu theo phòng ban 1,2,3 (cá)" DisplayName="Phân chia phòng ban sheet 1,2,3" sap:VirtualizedContainerService.HintSize="518.4,88" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -310,7 +311,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Nhân viên thực hiện xử lý yêu cầu khách hàng" DisplayName="Nhân viên thực hiện xử lý" sap:VirtualizedContainerService.HintSize="500.8,88" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence sap2010:Annotation.AnnotationText="Nhân viên thực hiện xử lý yêu cầu khách hàng" DisplayName="Nhân viên thực hiện xử lý" sap:VirtualizedContainerService.HintSize="518.4,88" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -319,7 +320,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Khi trạng thái Done =&gt; Gửi mail khách hàng + ghi vào file Chính (B) + xóa dòng trong sheet 1,2,3(optional)" DisplayName="Hoàn thanh done " sap:VirtualizedContainerService.HintSize="500.8,92" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence sap2010:Annotation.AnnotationText="Khi trạng thái Done =&gt; Gửi mail khách hàng + ghi vào file Chính (B) + xóa dòng trong sheet 1,2,3(optional) Awbae" DisplayName="Hoàn thanh done " sap:VirtualizedContainerService.HintSize="518.4,92" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
