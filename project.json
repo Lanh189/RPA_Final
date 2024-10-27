@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "RPA_Final",
   "projectId": "98a74d43-0c42-4be2-8c0b-6a155fc14ea7",
   "description": "Blank Process",
@@ -6,9 +6,11 @@
   "dependencies": {
     "UiPath.Excel.Activities": "[2.24.2]",
     "UiPath.Mail.Activities": "[1.23.11]",
+    "UiPath.MLServices.Activities": "[2.0.3]",
     "UiPath.System.Activities": "[24.11.0-preview]",
     "UiPath.Testing.Activities": "[24.10.3]",
-    "UiPath.UIAutomation.Activities": "[24.11.1-preview]"
+    "UiPath.UIAutomation.Activities": "[24.11.1-preview]",
+    "UiPath.WebAPI.Activities": "[1.21.1]"
   },
   "webServices": [],
   "entitiesStores": [],
